@@ -25,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
 async function publishPost(id: number): Promise<void> {
   await fetch(
-    `${process.env.VERCEL_URL || 'localhost:3000'}/api/publish/${id}`,
+    `${process.env.DOMAIN_URL || 'localhost:3000'}/api/publish/${id}`,
     {
       method: 'PUT',
     }
@@ -35,7 +35,7 @@ async function publishPost(id: number): Promise<void> {
 }
 
 async function deletePost(id: number): Promise<void> {
-  await fetch(`${process.env.VERCEL_URL || 'localhost:3000'}/api/post/${id}`, {
+  await fetch(`${process.env.DOMAIN_URL || 'localhost:3000'}/api/post/${id}`, {
     method: 'DELETE',
   });
   Router.push('/');
